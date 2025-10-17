@@ -416,13 +416,13 @@ el.badgeLeft.textContent='左：'+leftText;
 
   function doVideo(ip,label){
     ip.busy=true; toast(`${ip.name} 开始拍「${label}」…`); uiBeginActionOverlay();
-    runProgress(randInt(4500,7000),()=>{ const r=computeVideoOutcome(ip,label);
+    runProgress(randInt(1000,5000),()=>{ const r=computeVideoOutcome(ip,label);
       state.coins+=r.coins; state.fans+=r.fans; ip.busy=false; ip.actedToday=true; updateTurns(); syncHud(); updateGoalBar();
       showGains(r); toast(`完成！粉丝 +${r.fans}，金币 +${r.coins}`); state.flow.step='type'; state.flow.chosenType=null; refreshCard(); });
   }
   function doLive(ip,label){
     ip.busy=true; toast(`${ip.name} 正在直播「${label}」…`); uiBeginActionOverlay();
-    runProgress(randInt(4500,7000),()=>{ const r=computeLiveOutcome(ip,label);
+    runProgress(randInt(1000,5000),()=>{ const r=computeLiveOutcome(ip,label);
       state.coins+=r.coins; state.fans+=r.fans; ip.busy=false; ip.actedToday=true; updateTurns(); syncHud(); updateGoalBar();
       showGains(r); toast(`直播结束！金币 +${r.coins}，粉丝 +${r.fans}`); state.flow.step='type'; state.flow.chosenType=null; refreshCard(); });
   }
